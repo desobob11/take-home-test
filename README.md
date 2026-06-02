@@ -14,7 +14,32 @@ You are building a backend module for a small e-commerce company. You have been 
 
 **No UI required:** console output or written files is fine.
 
-**You can use AI if you like** but you will still have to explain to me how everything works in detail, and if the code is full of confusing AI slop that likely won't help you. 
+a partial output of the program might look like this:
+```
+=== Task 1 — Validation Report ===
+
+  [ORD-002] items list is empty
+  [ORD-003] placed_at is null
+
+
+=== Task 2 — Detailed Orders ===
+
+  ORD-001  customer=Alice Brown (premium)
+    A1  Widget Alpha               qty=2  @ $9.99  = $19.98
+    B3  Widget Beta                qty=1  @ $14.99  = $14.99
+    subtotal=$34.97  discount=$3.50  total=$31.47
+
+  ORD-004  customer=Carol White (standard)
+    A1  Widget Alpha               qty=1  @ $9.99  = $9.99
+    subtotal=$9.99  discount=$0.00  total=$9.99
+
+  ORD-006  customer=Bill Murray (premium)
+    C4  UNKNOWN (C4)               qty=10  @ $0.00  = $0.00
+    subtotal=$0.00  discount=$0.00  total=$0.00
+```
+
+
+**You can use AI if you like**: you will still have to explain to me how everything works in detail, and if the code contains redundant or confusing AI 'slop' that likely won't help. 
 
 
 
@@ -40,7 +65,7 @@ Load all three data sources and produce a **validation report** listing every da
 
 ### Task 2 — Merge & Enrich
 
-For each valid order, join the data so that each order line item includes the product name, unit price, and customer tier. Calculate an order total. Apply a **10% discount** to orders from `premium` customers.
+For each valid order, merge the data so that each order line item includes the product name, unit price, and customer tier. Calculate an order total. Apply a **10% discount** to orders from `premium` customers.
 
 ### Task 3 — Filter & Summarise
 
