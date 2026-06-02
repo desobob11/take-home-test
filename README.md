@@ -4,13 +4,21 @@
 
 You are building a backend module for a small e-commerce company. You have been given raw data files and must build a pipeline that ingests, cleans, transforms, and processes orders through a fulfilment workflow.
 
-**Time guidance:** aim for 2–3 hours. Quality matters more than completeness — if you run short on time, finish fewer tasks well rather than rushing all of them.
+**Purpose** 
 
-**Language:** Python, C#, or Node.js/TypeScript — pick one.
+The purpose of the test is to give us something concrete (actual code) to talk about in a more formal way than the screening interview we have sone so far. The goal is not perfection or attempting to solve every edge case, but for you build a simple solution and then talk me through the way you solved the problems -- in code.
+
+**Time guidance:** Don't spend more than a couple of hours on this -- if your solution is more than x lines, it's probably too big and we won't have time to discuss it all.
+
+**Language:** Python, C#, or Node.js/JavaScript/TypeScript — pick one.
 
 **Dependencies:** use whatever libraries feel natural; document them in your submission.
 
 **No UI required:** console output or written files is fine.
+
+**You can use AI if you like** but you will still have to explain to me how everything works in detail, and if the code is full of confusing AI slop that likely won't help you. 
+
+
 
 ---
 
@@ -76,4 +84,8 @@ Include a short `NOTES.md` (bullet points are fine) covering:
 
 ## Submission
 
-Fork this repo and open a pull request, **or** zip your solution and email it back. Include any instructions needed to run your code.
+Fork this repo and send me a link to it, **or** zip your solution and email it back. Include any instructions (the more explicit the better) needed to run your code. 
+
+
+
+
