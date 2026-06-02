@@ -1,0 +1,11 @@
+[
+  { "id": "ORD-001", "customer_id": "C1", "items": [{"sku": "A1", "qty": 2}, {"sku": "B3", "qty": 1}], "placed_at": "2024-03-01T09:00:00Z", "status": "new" },
+  { "id": "ORD-002", "customer_id": "C2", "items": [], "placed_at": "2024-03-01T10:00:00Z", "status": "new" },
+  { "id": "ORD-003", "customer_id": "C1", "items": [{"sku": "X9", "qty": 1}], "placed_at": null, "status": "new" },
+  { "id": "ORD-004", "customer_id": "C3", "items": [{"sku": "A1", "qty": 1}], "placed_at": "2024-03-02T08:00:00Z", "status": "new" },
+  { "id": "ORD-006", "customer_id": "C4", "items": [{"sku": "C4", "qty": 10}], "placed_at": "2024-03-02T08:00:00Z", "status": "new" },
+  { "id": "ORD-007", "customer_id": "C4", "items": [{"sku": "C7", "qty": 10}], "placed_at": "2024-03-02T08:00:00Z", "status": "new" },
+  { "id": "ORD-008", "customer_id": "C6", "items": [{"sku": "E1", "qty": 3}], "placed_at": "2024-03-02T08:00:00Z", "status": "new" },
+  { "id": "ORD-009", "customer_id": "C7", "items": [{"sku": "G4", "qty": 4}], "placed_at": "2024-03-02T08:00:00Z", "status": "new" },
+  { "id": "ORD-010", "customer_id": "C8", "items": [{"sku": "H8", "qty": 1}], "placed_at": "2024-03-02T08:00:00Z", "status": "new" }
+]

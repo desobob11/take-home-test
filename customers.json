@@ -1,0 +1,9 @@
+[
+  { "id": "C1", "name": "Alice Brown", "tier": "premium" },
+  { "id": "C2", "name": "Bob Smith", "tier": "standard" },
+  { "id": "C3", "name": "Carol White", "tier": "standard" },
+  { "id": "C4", "name": "Bill Murray", "tier": "premium" },
+  { "id": "C6", "name": "Andy Jones", "tier": "standard" },
+  { "id": "C7", "name": "Elena Wilson", "tier": "standard" },
+  { "id": "C8", "name": "Adam Thomas", "tier": "standard" }
+]
