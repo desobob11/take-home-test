@@ -4,15 +4,13 @@
 
 You are building a backend module for a small e-commerce company. You have been given raw data files and must build a pipeline that ingests, cleans, transforms, and processes orders through a fulfilment workflow.
 
-**Purpose** 
+**Purpose**: you are doing this assignment to give us something concrete (actual code) to talk about in a more formal way than the screening interview we have done so far. The goal is not perfection or for you to attempt to solve every edge case, but for you to build a simple solution and then talk me through the way you solved the problems -- in code.
 
-The purpose of the test is to give us something concrete (actual code) to talk about in a more formal way than the screening interview we have sone so far. The goal is not perfection or attempting to solve every edge case, but for you build a simple solution and then talk me through the way you solved the problems -- in code.
-
-**Time guidance:** Don't spend more than a couple of hours on this -- if your solution is more than x lines, it's probably too big and we won't have time to discuss it all.
+**Time guidance:** Don't spend more than two to three hours on this. I don't want to steal your valuable time! If your solution is more than 500 lines with spaces and comments, it's probably too big and we won't have time to discuss it all. You can fit the entire thing into one file with a few classes and functions - or use several files. It's up to you.
 
 **Language:** Python, C#, or Node.js/JavaScript/TypeScript — pick one.
 
-**Dependencies:** use whatever libraries feel natural; document them in your submission.
+**Dependencies:** use whatever libraries feel natural.
 
 **No UI required:** console output or written files is fine.
 
