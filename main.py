@@ -121,6 +121,7 @@ def validate_orders(orders: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
     # Concatenate these two datasets on top of each other (UNION ALL) - these are invaliud records
     invalid_data = pd.concat([invalid_sku_data, missing_data], axis=0).sort_values(by="orders_id", ascending=True)
+
     valid_data = orders[valid_mask].copy()
 
     for msg in invalid_data["error_msg"]:

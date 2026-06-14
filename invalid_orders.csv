@@ -1,0 +1,5 @@
+,orders_id,orders_customer_id,orders_placed_at,orders_status,orders_sku,orders_qty,error_msg
+1,ORD-002,C2,2024-03-01 10:00:00+00:00,new,,,"ERROR [ORD-002]: SKU #[nan] refers to a product that does not exist, or there are no items in the order (nan)"
+1,ORD-002,C2,2024-03-01 10:00:00+00:00,new,,,"ERROR [ORD-002]: is missing a value for one of the following field: ['orders_id', 'orders_customer_id', 'orders_sku', 'orders_qty']"
+2,ORD-003,C1,,new,X9,1.0,"ERROR [ORD-003]: SKU #[X9] refers to a product that does not exist, or there are no items in the order (nan)"
+4,ORD-006,C4,2024-03-02 08:00:00+00:00,new,C4,10.0,"ERROR [ORD-006]: SKU #[C4] refers to a product that does not exist, or there are no items in the order (nan)"
