@@ -8,14 +8,14 @@
 - If an order references a product SKU that does not exist, it is an invalid row and will be excluded as per the above bullet point
 
 ## What I Would Do Differently with More Time
-1. I would make my validation report give more detailed error messsages
+1. I would make my validation report give more detailed error messages
     - Explicitly say which field(s) are missing values.
     - Better indicate empty items list vs. NULL SKU/quantities
 
 2. I would handle the ORDERS dataset and nested JSON objects differently I think
     - Forcing the dataset into a flat dataframe worked well for splitting valid and invalid orders
     - It also worked well when producing the reports in Task 3
-    - It did NOT work well for producing the desired outputs for Task 2 and Task 3.
+    - It did NOT work well for producing the desired reports for Task 1 and Task 2
 
 3. Handling missing "placed_at" values in ORDERS
     - Instead of ignoring these, I would find a way to add best-guess values (datetime from record prior or record after)
