@@ -71,9 +71,9 @@ def load_dataset(filename: str, col_to_norm: str | None) -> pd.DataFrame | None:
         if col_to_norm is None:
             return df
         
-        df_exploded = df.explode(col_to_norm)  # cross product, create new table rows for nested elements. Elements are in one column
-        df_normed = pd.json_normalize(df_exploded[col_to_norm]).set_index(df_exploded.index) # Creates unique columns for each element key
-        df = df_exploded.drop(columns=col_to_norm).join(df_normed).drop_duplicates()
+        df_exploded = df.explode(col_to_norm).reset_index(drop=True)  # cross product, create new table rows for nested elements. Elements are in one column
+        df_normed = pd.json_normalize(df_exploded[col_to_norm]).set_index(df_exploded.index).reset_index(drop=True) # Creates unique columns for each element key
+        df = df_exploded.drop(columns=col_to_norm).join(df_normed)
         return df
     
     elif ".csv" in filename:
@@ -184,7 +184,7 @@ def enrich_valid_orders(orders: pd.DataFrame) -> pd.DataFrame:
         print(f"[{order_id}]    customer={customer_name} ({customers_tier})")
 
         # print indiviudal line items for each SKU/qty pair in an order
-        enriched[enriched["orders_id"] == order_id].apply(lambda row: print(f"   {row['orders_sku']}     {row['customers_name']}     qty={row['orders_qty']}        @ {row['products_price']:.2f}  =  {(row['orders_qty'] * row['products_price']):.2f}"), axis=1)
+        enriched[enriched["orders_id"] == order_id].apply(lambda row: print(f"   {row['orders_sku']}     {row['products_name']}     qty={row['orders_qty']}        @ {row['products_price']:.2f}  =  {(row['orders_qty'] * row['products_price']):.2f}"), axis=1)
        
         print(f"    subtotal={subtotal:.2f}     discount={discount:.2f}     total={(subtotal - discount):.2f}\n")
 
@@ -226,12 +226,19 @@ def per_customer_summary(enriched: pd.DataFrame) -> pd.DataFrame:
     -------
     Tabular summary
     """
-
-    # SELECT customer_name, SUM(subtotal), COUNT() GROUP BY customer_name
-    return enriched.groupby("customers_name").agg(
-        subtotal=("subtotal", "sum"),
-        order_count=("subtotal", "count")
-    ).reset_index()
+  
+    # SELECT orders_id, SUM(subtotal), MAX(customers_name) GROUP BY customer_name 
+    # flatten line items into single order lines first, using MAX(customer_name) since order_id to customer_name is 1:1
+    by_order = enriched.groupby("orders_id").agg(
+                    subtotal=("subtotal", "sum"),
+                    cust_name=("customers_name", "max")
+                ).reset_index()
+    
+    # SELECT customer_name, SUM(subtotal), COUNT(order_id) GROUP BY customer_name
+    return by_order.groupby("cust_name").agg(
+                        subtotal=("subtotal", "sum"),
+                        order_count=("orders_id", "count")
+                ).reset_index()
 
 
 
@@ -248,7 +255,7 @@ def top_selling_sku(enriched: pd.DataFrame) -> pd.DataFrame:
     """
 
     # SELECT order_sku, SUM(orders_qty) GROUP BY order_sku ORDER BY SUM(orders_qty) DESC
-    return enriched.groupby("orders_sku").agg(
+    return  enriched.groupby("orders_sku").agg(
         sku_count=("orders_qty", "sum")
     ).reset_index().sort_values("sku_count", ascending=False)
 
@@ -363,6 +370,9 @@ def main():
     print("============= Task 2 - Detailed Orders =============\n")
     enriched = enrich_valid_orders(valid)
     print("\n")
+
+  #  print(enriched.to_string())
+   # exit()
 
     print("============= Unfillable Records =============\n")
     unfillable = unfillable_orders(enriched)
