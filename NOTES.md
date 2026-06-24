@@ -21,11 +21,13 @@
     - Instead of ignoring these, I would find a way to add best-guess values (datetime from record prior or record after)
     - This would help in a situation where "placed_at" is required, such as detailed order breakdowns based on when they were placed.
 
+4. Using a more class-based design
+    - This was a small quick program so I decided to leave classes out of it
+    - However, classes would definitely help to make the code more natural and readable
+        - I would redo the state-machine and turn it into a class with separate methods for simulating the processing of an order
+
 
 
 ## One thing I'd Add If This Was a Production System
-- I would add a relational database that would house this data
-- This would include seeding the CUSTOMERS, PRODUCTS, and ORDERS tables
-- Some associative tables would be useful as well
-    - A OrderProduct associative table would be useful to deal with 1:many relationship between Orders and Products
-    - Fields could be: order_id, product_id, quantity, price
+- Logging
+    - I would implement useful logging to help trace the flow of the program, especially in the case of unexpected errors or data quality issues external extracts like ORDERS
