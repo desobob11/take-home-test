@@ -235,8 +235,7 @@ def per_customer_summary(enriched: pd.DataFrame) -> pd.DataFrame:
                 ).reset_index()
     
     # SELECT customer_name, SUM(subtotal), COUNT(order_id) GROUP BY customer_name
-    return by_order.groupby("cust_name").agg(
-                        subtotal=("subtotal", "sum"),
+    return by_order.groupby(["cust_name", "subtotal"]).agg(
                         order_count=("orders_id", "count")
                 ).reset_index()
 
